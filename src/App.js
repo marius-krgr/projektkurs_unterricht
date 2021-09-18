@@ -9,7 +9,7 @@ function App() {
 
   return (
     <React.Fragment>
-      <div>Hi there! Oh yeah es funktionuggelt yaaahhhh!!!</div>;
+      <div>Hi there! Oh yeah es funktionuggelt yaaahhhh!!!</div>
       <ActionButton />
       <Rechnen />
     </React.Fragment>
