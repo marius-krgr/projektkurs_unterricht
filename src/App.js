@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import ActionButton from './components/ActionButton.jsx';
 import Rechnen from './components/Rechnen.jsx';
-import Aufgabe1 from './components/Aufgabe1.jsx';
+import Verdoppeln from './components/Verdoppeln.jsx';
 
 
 
@@ -13,7 +13,7 @@ function App() {
       <div>Hi there! Oh yeah es funktionuggelt yaaahhhh!!!</div>
       <ActionButton />
       <Rechnen />
-      <Aufgabe1 />
+      <Verdoppeln />
     </React.Fragment>
   )
 }
