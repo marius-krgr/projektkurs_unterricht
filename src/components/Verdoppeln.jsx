@@ -17,16 +17,30 @@ function Verdoppeln() {
     }
 
     return (<>
-        <div></div>
-        <span>1. String: </span>
-        <input value={s} onChange={handleChangeS} />
-        <div>Doppelte: {ergebnis}</div>
+        <div class="ui input focus">
+            <input
+                type="text"
+                placeholder="String input"
+                value={s}
+                onChange={handleChangeS}
+            />
+        </div>
+
+        <font color="white">penis</font>
+
         <button
-            className="ui blue basic button"
+            className="ui animated fade teal button"
+            tabIndex="0"
             onClick={handleClick}>
-            Verdoppeln
+                <div class="visible content">Verdopple</div>
+                <div class="hidden content">Go!</div>
         </button>
-        </>)
+
+        <div>
+            <font size="4"><br/>Doppelte:  {ergebnis}<br/></font>
+        </div>
+        
+    </>)
         
         //Fragen:
         // wie krieg ich den Button aktiviert, sodass ich in der const handleClick etwas ausgeben lassen kann (das Ergebnis)

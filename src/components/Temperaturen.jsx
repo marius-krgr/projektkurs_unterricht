@@ -5,10 +5,12 @@ function Temperaturen() {
         const [celsius, setS] = useState("");
         const [ergebnis, setErgebnis] = useState("");
         const [farbe, setFarbe] = useState("");
+        const [icon, setIcon] = useState("");
 
         const [fahrenheit, setFahrenheit] = useState("");
         const [ergebnisFahrenheit, setErgebnisFahrenheit] = useState("");
         const [farbeFahrenheit, setFarbeFahrenheit] = useState("");
+        const [iconFahrenheit, setIconFahrenheit] = useState("");
 
     const handleChangeCelsius = (event) => {
         const temp = event.target.value;
@@ -24,12 +26,16 @@ function Temperaturen() {
         const z = (celsius * 1.8 + 32);
         if (celsius < 0) {
             setFarbe("blue");
-        } else if (celsius < 10 && celsius >= 0) {
+            setIcon("snowflake icon");
+        } else if (celsius <= 15 && celsius >= 0) {
             setFarbe("cyan");
-        } else if (celsius > 10 && celsius < 25) {
+            setIcon("cloud icon");
+        } else if (celsius >= 15 && celsius < 25) {
             setFarbe("orange");
-        } else if (celsius > 25) {
+            setIcon("sun icon");
+        } else if (celsius >= 25) {
             setFarbe("red");
+            setIcon("fire icon");
         }
         setErgebnis(z);
     }
@@ -38,51 +44,90 @@ function Temperaturen() {
         const z = ((fahrenheit - 32) * 5/9);
         if (z < 0) {
             setFarbeFahrenheit("blue");
-        } else if (z < 10 && z >= 0) {
+            setIconFahrenheit("snowflake icon");
+        } else if (z <= 15 && z >= 0) {
             setFarbeFahrenheit("cyan");
-        } else if (z > 10 && z < 25) {
+            setIconFahrenheit("cloud icon");
+        } else if (z >= 15 && z < 25) {
             setFarbeFahrenheit("orange");
-        } else if (z > 25) {
+            setIconFahrenheit("sun icon");
+        } else if (z >= 25) {
             setFarbeFahrenheit("red");
+            setIconFahrenheit("fire icon");
         }
         setErgebnisFahrenheit(z);
     }
 
     return (<>
-        <div></div>
-        <span>Eingabe C°: </span>
+        {/* <span>Eingabe C°: </span> */}
 
-        <input
-            value={celsius}
-            onChange={handleChangeCelsius}
-        />
-        <div
-            style = {{backgroundColor: farbe}}>
-                Temperatur in F°: {ergebnis}
+        <div class="ui right labeled input">
+            <input
+                type="text"
+                placeholder="Eingabe"
+                value={celsius}
+                onChange={handleChangeCelsius}
+            />
+            <div class="ui basic label">
+                C°
+            </div>
         </div>
+
+        <font color="white">penis</font>
+
         <button
-            className="ui blue basic button"
+            className="ui animated fade teal button"
+            tabIndex="0"
             onClick={handleClick}>
-            Konvertieren
+                <div class="visible content">Konvertieren</div>
+                <div class="hidden content">Go!</div>
         </button>
 
-        <div></div>
-        <span>Eingabe F°: </span>
-
-        <input
-            value={fahrenheit}
-            onChange={handleChangeFahrenheit}
-        />
-        <div
-            style = {{backgroundColor: farbeFahrenheit}}>
-            Temperatur in C°: {ergebnisFahrenheit}
+        {/* <div
+            style = {{backgroundColor: farbe, fontSize:20}}>
+                <br/>Temperatur in F°: {ergebnis} <i class={farbe}/>
+        </div> */}
+        <div>
+            <p><br/></p>
+                <font color={farbe} size="4">
+                    Temperatur in F°: {ergebnis} <i class={icon}/>
+                </font>
         </div>
+        
+
+        <div><br/></div>
+
+
+        <div class="ui right labeled input">
+            <input
+                type="text"
+                placeholder="Eingabe"
+                value={fahrenheit}
+                onChange={handleChangeFahrenheit}
+            />
+            <div class="ui basic label">
+                F°
+            </div>
+        </div>
+
+        <font color="white">penis</font>
+
         <button
-            className="ui blue basic button"
+            className="ui animated fade teal button"
+            tabIndex="0"
             onClick={handleClickFahrenheit}>
-            Konvertieren
+                <div class="visible content">Konvertieren</div>
+                <div class="hidden content">Go!</div>
         </button>
-        </>)
+
+        <div>
+            <p><br/></p>
+                <font color={farbeFahrenheit} size="4">
+                    Temperatur in C°: {ergebnisFahrenheit} <i class={iconFahrenheit}/>
+                </font>
+        </div>
+
+    </>)
         
         //Fragen:
         // wie krieg ich den Button aktiviert, sodass ich in der const handleClick etwas ausgeben lassen kann (das Ergebnis)

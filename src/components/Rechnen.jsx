@@ -19,6 +19,7 @@ function Rechnen() {
 
     const [y, setY] = useState();
 
+    const [ergebnis, setErgebnis] = useState("");
 
     const handleChangeX = (event) => {
         const temp = event.target.value;
@@ -32,29 +33,41 @@ function Rechnen() {
 
 
     const handleClick = () => {
-        console.log("handleClick");
-        return(
-            <>
-                <div>Halloo</div>
-            </>
-        )
-        //const z = 100;
-        //return z;
-        
-        //alert("Yayy, du hast mich gefunden!!!");
-        //return <div>Summe: {+x + +y}</div>
-        
+        setErgebnis(+x + +y);
     }
     return (<>
-        <span>1. Zahl: </span>
-        <input value={x} onChange={handleChangeX} />
-        <span>2. Zahl: </span>
-        <input value={y} onChange={handleChangeY} />
-        <div>Summe: {+x + +y}</div>
+        {/* <span>1. Zahl: </span> */}
+        <div class="ui input focus">
+            <input
+                type="text"
+                placeholder="1. Zahl"
+                value={x}
+                onChange={handleChangeX}
+            />
+        </div>
+
+        <span> </span>
+        <i class="plus pink icon"/>
+
+        <div class="ui input focus">
+            <input
+                type="text"
+                placeholder="2. Zahl"
+                value={y}
+                onChange={handleChangeY}
+            />
+        </div>
+        
+        <font size="4" color="red"><b>  =  {ergebnis}</b></font>
+
+        <p><br></br></p>
+
         <button
-            className="ui blue basic button"
+            className="ui animated fade teal button"
+            tabIndex="0"
             onClick={handleClick}>
-            Addiere
+                <div class="visible content">Addiere</div>
+                <div class="hidden content">Go!</div>
         </button>
         </>)
         
