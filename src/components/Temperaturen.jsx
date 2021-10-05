@@ -1,4 +1,7 @@
 import { useState } from "react";
+import styles from './Temperaturen.module.scss';
+import classNames from 'classnames';
+
 function Temperaturen() {
     
     
@@ -6,11 +9,13 @@ function Temperaturen() {
         const [ergebnis, setErgebnis] = useState("");
         const [farbe, setFarbe] = useState("");
         const [icon, setIcon] = useState("");
+        const [image, setImage] = useState("");
 
         const [fahrenheit, setFahrenheit] = useState("");
         const [ergebnisFahrenheit, setErgebnisFahrenheit] = useState("");
         const [farbeFahrenheit, setFarbeFahrenheit] = useState("");
         const [iconFahrenheit, setIconFahrenheit] = useState("");
+        const [imageFahrenheit, setImageFahrenheit] = useState("");
 
     const handleChangeCelsius = (event) => {
         const temp = event.target.value;
@@ -27,15 +32,19 @@ function Temperaturen() {
         if (celsius < 0) {
             setFarbe("blue");
             setIcon("snowflake icon");
+            setImage("https://unsplash.com/photos/qQWV91TTBrE/download?force=true&w=1920");
         } else if (celsius <= 15 && celsius >= 0) {
             setFarbe("cyan");
             setIcon("cloud icon");
+            setImage("https://unsplash.com/photos/SrACTSOBoCg/download?force=true");
         } else if (celsius >= 15 && celsius < 25) {
             setFarbe("orange");
             setIcon("sun icon");
+            setImage("https://unsplash.com/photos/HClKQKUodF4/download?force=true");
         } else if (celsius >= 25) {
             setFarbe("red");
             setIcon("fire icon");
+            setImage("https://unsplash.com/photos/Nz-zAt4qiuU/download?force=true");
         }
         setErgebnis(z);
     }
@@ -45,22 +54,25 @@ function Temperaturen() {
         if (z < 0) {
             setFarbeFahrenheit("blue");
             setIconFahrenheit("snowflake icon");
+            setImageFahrenheit("https://unsplash.com/photos/qQWV91TTBrE/download?force=true&w=1920");
         } else if (z <= 15 && z >= 0) {
             setFarbeFahrenheit("cyan");
             setIconFahrenheit("cloud icon");
+            setImageFahrenheit("https://unsplash.com/photos/SrACTSOBoCg/download?force=true");
         } else if (z >= 15 && z < 25) {
             setFarbeFahrenheit("orange");
             setIconFahrenheit("sun icon");
+            setImageFahrenheit("https://unsplash.com/photos/HClKQKUodF4/download?force=true");
         } else if (z >= 25) {
             setFarbeFahrenheit("red");
             setIconFahrenheit("fire icon");
+            setImageFahrenheit("https://unsplash.com/photos/Nz-zAt4qiuU/download?force=true");
         }
         setErgebnisFahrenheit(z);
     }
 
-    return (<>
-        {/* <span>Eingabe C°: </span> */}
 
+    return (<>
         <div class="ui right labeled input">
             <input
                 type="text"
@@ -83,14 +95,11 @@ function Temperaturen() {
                 <div class="hidden content">Go!</div>
         </button>
 
-        {/* <div
-            style = {{backgroundColor: farbe, fontSize:20}}>
-                <br/>Temperatur in F°: {ergebnis} <i class={farbe}/>
-        </div> */}
+
         <div>
             <p><br/></p>
                 <font color={farbe} size="4">
-                    Temperatur in F°: {ergebnis} <i class={icon}/>
+                    Temperatur in F°: {ergebnis} <i class={icon}/> <img src={image} alt="" className={classNames('ui medium circular image', styles.hintergrund)}/>
                 </font>
         </div>
         
@@ -104,7 +113,7 @@ function Temperaturen() {
                 placeholder="Eingabe"
                 value={fahrenheit}
                 onChange={handleChangeFahrenheit}
-            />
+                />
             <div class="ui basic label">
                 F°
             </div>
@@ -122,21 +131,19 @@ function Temperaturen() {
 
         <div>
             <p><br/></p>
-                <font color={farbeFahrenheit} size="4">
-                    Temperatur in C°: {ergebnisFahrenheit} <i class={iconFahrenheit}/>
+                <font color={farbeFahrenheit} size="4" type="">
+                    Temperatur in C°: {ergebnisFahrenheit} <i class={iconFahrenheit}/> <img src={imageFahrenheit} alt="" className={classNames('ui medium circular image', styles.hintergrund)}/>
                 </font>
-        </div>
-
+         </div>
+        
     </>)
         
-        //Fragen:
-        // wie krieg ich den Button aktiviert, sodass ich in der const handleClick etwas ausgeben lassen kann (das Ergebnis)
- 
+        
         //React Komponente:
         // 1. Props (Infos an unterkomponente)
         // 2. State (Innerhalb einer componente)
         // 3. userinfo (Infos überall drauf zugreifen) (redux)
-
-}
-
-export default Temperaturen;
+        
+    }
+    
+    export default Temperaturen;
