@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from './Temperaturen.module.scss';
+import styles from './Style.scss';
 import classNames from 'classnames';
 
 function Temperaturen() {

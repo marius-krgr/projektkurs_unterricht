@@ -4,6 +4,10 @@ import ActionButton from './components/ActionButton.jsx';
 import Rechnen from './components/Rechnen.jsx';
 import Verdoppeln from './components/Verdoppeln.jsx';
 import Temperaturen from './components/Temperaturen.jsx';
+import Vertretungsplan from './components/Vertretungsplan.jsx';
+import BreweryApi from './components/Brewery.jsx';
+
+
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 
 
@@ -22,6 +26,9 @@ function App() {
               <Link to='/rechnen' className="item">Rechnen</Link>
               <Link to='/verdoppeln' className="item">Verdoppeln</Link>
               <Link to='/temperaturen' className="item">Temperaturen</Link>
+              <Link to='/vertretungsplan' className="item">Vertretungsplan</Link>
+              <Link to='/brewery-api' className="item">Brewery-Api</Link>
+
           </div>
 
           <div className="ui segment">
@@ -53,6 +60,15 @@ function App() {
             <Route path='/temperaturen'>
               <h1>Temperaturen!</h1>
               <div className="ui raised segment"><Temperaturen /></div>
+            </Route>
+
+            <Route path='/vertretungsplan'>
+              <h1>Vertretungsplan!</h1>
+              <div className="ui raised segment"><Vertretungsplan /></div>
+            </Route>
+
+            <Route path='/brewery-api'>
+              <div><BreweryApi /></div>
             </Route>
             {/* <div className="ui raised segment">Important Message: Hi there! Oh yeah es funktionuggelt yaaahhhh!!!</div>
             <div className="ui raised segment"><ActionButton /></div>
