@@ -91,3 +91,9 @@ const Vertretungsplan = () => {
 // Mit .env im Hauptverzeichnis die Keys rein packen, sodass diese geschützt sind. Und diese in gitignore reinpacken
 //Mini Projekt mit API: https://covid19api.com API: https://api.covid19api.com
 export default Vertretungsplan;
+
+
+//HA von 2.11
+//Todo app machen!!
+//ins Array pushen
+//Eement anklicken, dann wird gelöscht
