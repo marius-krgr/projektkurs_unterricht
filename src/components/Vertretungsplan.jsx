@@ -69,7 +69,7 @@ const Vertretungsplan = () => {
             </pre> */}
 
             {lessonsss && (
-                <table className='coverlessonstable'>
+                <table className="ui single line table">
                 <thead>
                     <tr>
                     <th>Datum</th>

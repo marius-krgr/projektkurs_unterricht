@@ -28,7 +28,7 @@ function Temperaturen() {
 
 
     const handleClick = () => {
-        const z = (celsius * 1.8 + 32);
+        const z = (celsius * 1.8 + 32).toFixed(2);
         if (celsius < 0) {
             setFarbe("blue");
             setIcon("snowflake icon");
@@ -50,7 +50,7 @@ function Temperaturen() {
     }
 
     const handleClickFahrenheit = () => {
-        const z = ((fahrenheit - 32) * 5/9);
+        const z = ((fahrenheit - 32) * 5/9).toFixed(2);
         if (z < 0) {
             setFarbeFahrenheit("blue");
             setIconFahrenheit("snowflake icon");
