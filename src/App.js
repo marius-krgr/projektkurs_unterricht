@@ -6,6 +6,7 @@ import Verdoppeln from './components/Verdoppeln.jsx';
 import Temperaturen from './components/Temperaturen.jsx';
 import Vertretungsplan from './components/Vertretungsplan.jsx';
 import BreweryApi from './components/Brewery.jsx';
+import Todo from './components/Todo.jsx';
 
 
 import { BrowserRouter, Link, Route } from 'react-router-dom';
@@ -28,6 +29,7 @@ function App() {
               <Link to='/temperaturen' className="item">Temperaturen</Link>
               <Link to='/vertretungsplan' className="item">Vertretungsplan</Link>
               <Link to='/brewery-api' className="item">Brewery-Api</Link>
+              <Link to='/todo' className="item">Todo</Link>
 
           </div>
 
@@ -69,6 +71,11 @@ function App() {
 
             <Route path='/brewery-api'>
               <div><BreweryApi /></div>
+            </Route>
+
+            <Route path='/todo'>
+              <h1>To-Do Liste!</h1>
+              <div className="ui raised segment"><Todo/></div>
             </Route>
             {/* <div className="ui raised segment">Important Message: Hi there! Oh yeah es funktionuggelt yaaahhhh!!!</div>
             <div className="ui raised segment"><ActionButton /></div>

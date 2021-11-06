@@ -92,7 +92,7 @@ const Vertretungsplan = () => {
 //Mini Projekt mit API: https://covid19api.com API: https://api.covid19api.com
 export default Vertretungsplan;
 
-
+//fireship
 //HA von 2.11
 //Todo app machen!!
 //ins Array pushen
