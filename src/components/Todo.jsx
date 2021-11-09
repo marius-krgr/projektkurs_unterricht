@@ -9,16 +9,18 @@
 // Punkt umbenennen
 import { useState } from "react";
 import React from 'react';
-function Todo() {
+const Todo = () => {
 
 
     let a = [];
     a.push("Simon");
     const [neu, setNeu] = useState();
+    const [list, seList] = useState(Array());
     // const [listeee, setListe] = useState();
     // const [list, setList] = useState();
 
     // const [y, setY] = useState();
+
 
     const handleChangeNeu = (event) => {
         const temp = event.target.value;
@@ -29,11 +31,19 @@ function Todo() {
         console.log("Ich bin in handleClickLog!");
     }
 
+    const renderItem = () => {
+        return <div>[i]</div>
+    }
 
     const handleList = () => {
         console.log("Ich bin in der Liste!");
-        const list = a.map((e, i) => `${e}`);
-        console.log(list);
+        // const list = a.map((e, i) => `${e}`);
+        // console.log(list);
+        {a.map(i => renderItem(i))}
+        this.setState({
+            todo: this.state["todo"].filter((e) => a !== e),
+        });
+
     }
     
     //<li>{e}</li>
@@ -69,10 +79,10 @@ function Todo() {
         {/* {setListe}
         <ul>{listeee}</ul> */}
 
-
-
+        
+    
         </React.Fragment>
-        </>)
+    </>)
 }
 
 export default Todo;

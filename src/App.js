@@ -7,6 +7,7 @@ import Temperaturen from './components/Temperaturen.jsx';
 import Vertretungsplan from './components/Vertretungsplan.jsx';
 import BreweryApi from './components/Brewery.jsx';
 import Todo from './components/Todo.jsx';
+import TodoJ from './components/TodoJ.jsx';
 
 
 import { BrowserRouter, Link, Route } from 'react-router-dom';
@@ -30,6 +31,8 @@ function App() {
               <Link to='/vertretungsplan' className="item">Vertretungsplan</Link>
               <Link to='/brewery-api' className="item">Brewery-Api</Link>
               <Link to='/todo' className="item">Todo</Link>
+              <Link to='/todoj' className="item">TodoJ</Link>
+
 
           </div>
 
@@ -76,6 +79,10 @@ function App() {
             <Route path='/todo'>
               <h1>To-Do Liste!</h1>
               <div className="ui raised segment"><Todo/></div>
+            </Route>
+            <Route path='/todoj'>
+              <h1>To-Do J Liste!</h1>
+              <div className="ui raised segment"><TodoJ/></div>
             </Route>
             {/* <div className="ui raised segment">Important Message: Hi there! Oh yeah es funktionuggelt yaaahhhh!!!</div>
             <div className="ui raised segment"><ActionButton /></div>
