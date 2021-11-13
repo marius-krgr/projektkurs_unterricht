@@ -7,19 +7,45 @@
 //Punkt von da nach da verschieben
 
 // Punkt umbenennen
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from 'react';
+import classNames from "classnames";
+import styles from './Todo.module.scss';
+
 const Todo = () => {
 
-
-    let a = [];
-    a.push("Simon");
+    const [list, setList] = useState([]);
     const [neu, setNeu] = useState();
-    const [list, seList] = useState(Array());
-    // const [listeee, setListe] = useState();
-    // const [list, setList] = useState();
 
-    // const [y, setY] = useState();
+    useEffect(()  => {
+        const oldListString = localStorage?.getItem("todolist");
+        if (oldListString) {
+            setList(JSON.parse(oldListString));
+        } else {
+            //eslint-disable-next-line
+            const l = new Array(
+                { id: 1, title: 'Beispiel To-Do-Aufgabe', done: false },
+            );
+            setList(l);
+            localStorage.setItem("todolist", JSON.stringify(l));
+        }
+    }, [])
+
+    const handleToggleDone = (index) => {
+        const newList = JSON.parse(JSON.stringify(list));
+        const item = newList[index];
+        item.done = !item.done;
+        setList(newList);
+        localStorage.setItem("todolist", JSON.stringify(newList));
+    }
+
+    const handleDelete = (index) => {
+        const newList = JSON.parse(JSON.stringify(list));
+        newList.splice(index, 1);
+        setList(newList);
+        localStorage.setItem("todolist", JSON.stringify(newList));
+    }
+
 
 
     const handleChangeNeu = (event) => {
@@ -27,60 +53,80 @@ const Todo = () => {
         setNeu(temp);
     }
     const handleClickNeu = () => {
-        a.push(neu);
-        console.log("Ich bin in handleClickLog!");
-    }
-
-    const renderItem = () => {
-        return <div>[i]</div>
-    }
-
-    const handleList = () => {
-        console.log("Ich bin in der Liste!");
-        // const list = a.map((e, i) => `${e}`);
-        // console.log(list);
-        {a.map(i => renderItem(i))}
-        this.setState({
-            todo: this.state["todo"].filter((e) => a !== e),
+        const newList = JSON.parse(JSON.stringify(list));
+        newList.push({
+            id: list.length + 1,
+            title: neu,
+            done: false,
         });
-
+        setList(newList);
+        localStorage.setItem("todolist", JSON.stringify(newList));
+        setNeu("");
     }
-    
-    //<li>{e}</li>
-    // const b = a.map((e, i) => `<div key=${i}>${e}</div>`);
-    
+
+    const renderItem = (i, index) => {
+        return (
+            <div
+                key={i.id}
+                className="item"
+            >
+
+                <span className={classNames(styles.item, i.done ? styles.done : null)}>
+                    {/* ID */}
+                    <span>{i.id}. </span>
+
+                    {/* Title */}
+                    <span onClick={() => handleToggleDone(index)}>
+                        {i.title}
+                    </span>
+                </span>
+
+                {/* Löschen */}
+                <div className = "ui right floated small basic icon buttons">
+                    <button
+                        className = "ui button"
+                        onClick={() => handleDelete(index)}
+                    >
+                        <i className="trash alternate outline red icon"/>
+                    </button>
+                </div>
+
+                {/* Done */}
+                <div className = "ui right floated small basic icon buttons">
+                    <button
+                        className= "ui button"
+                        onClick={() => handleToggleDone(index)}
+                    >
+                        {i.done ? <i className="check circle outline icon"/> : <i className="circle outline icon"/>}
+                    </button>
+                </div>
+            </div>
+        );
+    };
+
 
     return (<>
         <React.Fragment>
-        <div className="ui input">
-            <input
-                type="text"
-                placeholder="Neue Todo"
-                value={neu}
-                onChange={handleChangeNeu}
-            />
+        <div>
+            <div className="ui massive bottom aligned divided list">{list.map((item, index) => renderItem(item, index))}</div>
         </div>
-        <button
-            className="ui animated fade teal button"
-            tabIndex="0"
-            onClick={handleClickNeu}>
+        <div className="ui input">
+                <input
+                    type="text"
+                    placeholder="Neue Todo"
+                    value={neu}
+                    onChange={handleChangeNeu}
+                />
+            </div>
+            <button
+                className="ui animated fade teal button"
+                tabIndex="0"
+                onClick={handleClickNeu}>
                 <div className="visible content">Hinzufügen</div>
                 <div className="hidden content">Go!</div>
-        </button>
-        
-        <button
-            className="ui animated fade teal button"
-            tabIndex="0"
-            onClick={handleList}>
-                <div className="visible content">Zeige Liste an!</div>
-                <div className="hidden content">Show me!</div>
-        </button>
+            </button>
 
-        {/* {setListe}
-        <ul>{listeee}</ul> */}
-
-        
-    
+            
         </React.Fragment>
     </>)
 }
