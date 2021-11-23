@@ -21,59 +21,29 @@ const TodoRedux = () => {
     // const [list, setList] = useState([]);
     const [neu, setNeu] = useState();
     const { todos } = useSelector(state => state.todos);
+    //Die beiden oberen Zeilen sind fast gleich, wir tun dasselbe, nur wir geben bei den Daten der todos einen useSelector an anstatt einen useState!
 
-    // useEffect(()  => {
-    //     const oldListString = localStorage?.getItem("todolist");
-    //     if (oldListString) {
-    //         setList(JSON.parse(oldListString));
-    //     } else {
-    //         //eslint-disable-next-line
-    //         const l = new Array(
-    //             { id: 1, title: 'Beispiel To-Do-Aufgabe', done: false },
-    //         );
-    //         setList(l);
-    //         localStorage.setItem("todolist", JSON.stringify(l));
-    //     }
-    // }, [])
 
     const handleToggleDone = id => {
-        // const newList = JSON.parse(JSON.stringify(list));
-        // const item = newList[index];
-        // item.done = !item.done;
-        // setList(newList);
-        // localStorage.setItem("todolist", JSON.stringify(newList));
-        
         dispatch(toggleDone(id));
     }
 
     const handleDelete = id => {
-        // const newList = JSON.parse(JSON.stringify(list));
-        // newList.splice(index, 1);
-        // setList(newList);
-        // localStorage.setItem("todolist", JSON.stringify(newList));
-
         dispatch(removeTodo(id));
+    }   
+    const handleClickEdit = id => {
+        dispatch(editWorking(id));
     }
-
     const handleChangeNew = (event) => {
         const temp = event.target.value;
         setNeu(temp);
     }
     const handleClickNew = () => {
-        // const newList = JSON.parse(JSON.stringify(list));
-        // newList.push({
-        //     id: list.length + 1,
-        //     title: neu,
-        //     done: false,
-        // });
-        // setList(newList);
-        // localStorage.setItem("todolist", JSON.stringify(newList));
+        //dispatch ist der Postbote, der das überbringt. Liegt daran, dass es oben kein State ist. Also: man braucht immer dispatch!
         dispatch(addTodo(neu));
         setNeu("");
     }
-    const handleClickEdit = id => {
-        dispatch(editWorking(id));
-    }
+    
 
     const renderItem = i => {
         return (
@@ -152,5 +122,8 @@ const TodoRedux = () => {
         </React.Fragment>
     </>)
 }
+//Aufgaben:
+// next Id, setNextId ersetzen
+//localStorage aktivieren
 
 export default TodoRedux;

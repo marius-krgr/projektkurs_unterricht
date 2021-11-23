@@ -4,7 +4,7 @@ import {
 } from '@reduxjs/toolkit';
 import todoReducer from './todoSlice';
 
-
+//Reducer = Reduzieren den Aufwand für ka
 export const rootReducer = combineReducers({
   todos: todoReducer,
 });

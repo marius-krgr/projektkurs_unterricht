@@ -8,3 +8,15 @@ Good Youtuber, der alles rund ums Programmieren erklärt!!
 
 Die Seite darf nicht zu lange brauchen um geladen zu werden!! Image optim zum Bilder verkleinern!
 Durchschnittliche Ladezeit bis ein User die Seite wieder verlässt ist 0,5 Sek!!!
+
+CSS Bibliotheken
+bootstrap 
+tailwind (Naja)
+Material UI (kompliziert)
+Prime React (K)
+react paket
+Semantic UI
+
+Daten werden immer nur an EINER Stelle verwaltet!!
+
+Cmd P für suche

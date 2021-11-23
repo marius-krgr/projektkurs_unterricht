@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateTitle } from '../store/todoSlice';
+import { editWorking, updateTitle } from '../store/todoSlice';
 import './TodoReduxDetails.scss'
 
 function ItemDetails(props) {
@@ -19,6 +19,7 @@ function ItemDetails(props) {
     const handleSubmit = event => {
         event.preventDefault();
         dispatch(updateTitle({ id: todo.id, title }));
+        dispatch(editWorking(todo.id));
     };
   
     return (

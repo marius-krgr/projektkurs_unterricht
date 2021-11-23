@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+//Was soll beim Start des Programmes gespeichert werden?
 const initialState = {
   todos: [
+    //if getLocalStorage was drin ist, setzte das da rein, sonst das folgene als default nehmen!
     { id: 1, title: 'Beispiel To-Do-Aufgabe', done: false, working: false},
   ],
 };
@@ -9,8 +11,11 @@ const initialState = {
 const todoSlice = createSlice({
   name: 'todo',
   initialState,
+  //hier ist nur Datenveränderung, sonst nichts weiter!
   // funktionen, mit denen man den state manipuliert
   reducers: {
+    //mit state kommt an die daten ran (von todo)
+    //mit action holen wir uns die Daten darein
     addTodo(state, action) {
       const title = action.payload;
       state.todos.push({ done: false, id: state.todos.length + 1, title: title, working: false});

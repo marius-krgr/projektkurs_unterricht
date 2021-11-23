@@ -20,6 +20,7 @@ import { BrowserRouter, Link, Route } from 'react-router-dom';
 function App() {
 
   return (
+    //Alle im Provider haben Zugriff auf den Store im Provider!
     <Provider store={store}>
     <BrowserRouter>
       <React.Fragment>
