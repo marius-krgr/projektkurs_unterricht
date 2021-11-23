@@ -139,11 +139,6 @@ function Temperaturen() {
     </>)
         
         
-        //React Komponente:
-        // 1. Props (Infos an unterkomponente)
-        // 2. State (Innerhalb einer componente)
-        // 3. userinfo (Infos überall drauf zugreifen) (redux)
-        
     }
     
     export default Temperaturen;

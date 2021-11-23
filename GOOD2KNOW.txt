@@ -1,0 +1,10 @@
+React Komponente:
+    1. Props (Infos an unterkomponente)
+    2. State (Innerhalb einer componente)
+    3. userinfo (Infos überall drauf zugreifen) (redux)
+
+Good Youtuber, der alles rund ums Programmieren erklärt!!
+    fireship
+
+Die Seite darf nicht zu lange brauchen um geladen zu werden!! Image optim zum Bilder verkleinern!
+Durchschnittliche Ladezeit bis ein User die Seite wieder verlässt ist 0,5 Sek!!!

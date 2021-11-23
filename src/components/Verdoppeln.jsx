@@ -41,14 +41,6 @@ function Verdoppeln() {
         </div>
         
     </>)
-        
-        //Fragen:
-        // wie krieg ich den Button aktiviert, sodass ich in der const handleClick etwas ausgeben lassen kann (das Ergebnis)
- 
-        //React Komponente:
-        // 1. Props (Infos an unterkomponente)
-        // 2. State (Innerhalb einer componente)
-        // 3. userinfo (Infos überall drauf zugreifen) (redux)
 
 }
 

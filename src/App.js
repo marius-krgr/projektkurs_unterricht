@@ -1,5 +1,8 @@
 import './App.css';
 import React from 'react';
+import { Provider } from 'react-redux';
+import store from './store/store';
+
 import ActionButton from './components/ActionButton.jsx';
 import Rechnen from './components/Rechnen.jsx';
 import Verdoppeln from './components/Verdoppeln.jsx';
@@ -7,6 +10,7 @@ import Temperaturen from './components/Temperaturen.jsx';
 import Vertretungsplan from './components/Vertretungsplan.jsx';
 import BreweryApi from './components/Brewery.jsx';
 import Todo from './components/Todo.jsx';
+import TodoRedux from './components/TodoRedux.jsx';
 import TodoJ from './components/TodoJ.jsx';
 
 
@@ -16,6 +20,7 @@ import { BrowserRouter, Link, Route } from 'react-router-dom';
 function App() {
 
   return (
+    <Provider store={store}>
     <BrowserRouter>
       <React.Fragment>
         <div className='ui container'>
@@ -31,6 +36,7 @@ function App() {
               <Link to='/vertretungsplan' className="item">Vertretungsplan</Link>
               <Link to='/brewery-api' className="item">Brewery-Api</Link>
               <Link to='/todo' className="item">Todo</Link>
+              <Link to='/todoredux' className="item">TodoRedux</Link>
               <Link to='/todoj' className="item">TodoJ</Link>
 
 
@@ -80,6 +86,12 @@ function App() {
               <h1>To-Do Liste!</h1>
               <div className="ui raised segment"><Todo/></div>
             </Route>
+            
+              <Route path='/todoredux'>
+                <h1>To-Do-Redux Liste!</h1>
+                <div className="ui raised segment"><TodoRedux/></div>
+              </Route>
+            
             <Route path='/todoj'>
               <h1>To-Do J Liste!</h1>
               <div className="ui raised segment"><TodoJ/></div>
@@ -94,6 +106,7 @@ function App() {
         </div>
       </React.Fragment>
     </BrowserRouter>
+    </Provider>
   );
   //Um Router zu benutzen, verschiednes runterladen
   //localStorage??!!!??!?!?!
