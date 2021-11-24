@@ -22,7 +22,7 @@ const TodoRedux = () => {
     const [neu, setNeu] = useState();
     const { todos } = useSelector(state => state.todos);
     //Die beiden oberen Zeilen sind fast gleich, wir tun dasselbe, nur wir geben bei den Daten der todos einen useSelector an anstatt einen useState!
-
+    const [iplace, setiplace] = useState(false);
 
     const handleToggleDone = id => {
         dispatch(toggleDone(id));
@@ -57,9 +57,17 @@ const TodoRedux = () => {
                     <span>{i.id}. </span>
 
                     {/* Title */}
-                    <span onClick={() => handleToggleDone(i.id)}>
+                    {/* <span onClick={() => handleToggleDone(i.id)}>
                         {i.title}
-                    </span>
+                    </span> */}
+                    {i.working && iplace ? (
+                        <span onClick={() => handleToggleDone(i.id)}>
+                            {console.log(i.edit && iplace)}
+                            <TodoDetails todo={i} inittext={i.title}/>
+                        </span>
+                    ) : (
+                        <span onClick={() => handleToggleDone(i.id)}>{i.title}</span>
+                    )}
                 </span>
 
                 {/* Löschen */}
@@ -91,7 +99,8 @@ const TodoRedux = () => {
                         {i.done ? <i className="check circle outline icon"/> : <i className="circle outline icon"/>}
                     </button>
                 </div>
-                {i.working === true ? <TodoDetails todo={i} />: null}
+                {/* {i.working === true ? <TodoDetails todo={i} />: null} */}
+                {i.working && !iplace ? (<TodoDetails todo={i} inittext={i.title} />) : null}
             </div>
         );
     };
@@ -99,6 +108,13 @@ const TodoRedux = () => {
 
     return (<>
         <React.Fragment>
+        <button
+          onClick={() => {
+            setiplace(!iplace);
+          }}
+        >
+          {iplace === false ? "x" : "tick"}
+        </button>
         <div>
             <div className="ui massive bottom aligned divided list">{todos.map(todo => renderItem(todo))}</div>
         </div>
