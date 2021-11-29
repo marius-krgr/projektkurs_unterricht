@@ -106,7 +106,6 @@ function App() {
             <div className="ui raised segment"><Verdoppeln/></div>
             <div className="ui raised segment"><Temperaturen/></div> */}
           </div>
-            <h1> Xenia ist Babsi die mag Rhababer Penis</h1>
         </div>
       </React.Fragment>
     </BrowserRouter>

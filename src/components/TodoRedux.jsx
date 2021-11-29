@@ -108,13 +108,6 @@ const TodoRedux = () => {
 
     return (<>
         <React.Fragment>
-        <button
-          onClick={() => {
-            setiplace(!iplace);
-          }}
-        >
-          {iplace === false ? "x" : "tick"}
-        </button>
         <div>
             <div className="ui massive bottom aligned divided list">{todos.map(todo => renderItem(todo))}</div>
         </div>
@@ -133,6 +126,18 @@ const TodoRedux = () => {
             <div className="visible content">Hinzufügen</div>
             <div className="hidden content">Go!</div>
         </button>
+        <div>
+            <div class="ui toggle checkbox">
+                <input
+                    type="checkbox"
+                    name="public"
+                    onClick={() => {
+                        setiplace(!iplace);
+                    }}
+                />
+                <label>Inplace Editing?</label>
+            </div>
+        </div>
 
             
         </React.Fragment>
