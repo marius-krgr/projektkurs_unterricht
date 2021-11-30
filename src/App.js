@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import Loader from './components/Loader';
 
 import ActionButton from './components/ActionButton.jsx';
 import Rechnen from './components/Rechnen.jsx';
@@ -22,6 +23,7 @@ function App() {
   return (
     //Alle im Provider haben Zugriff auf den Store im Provider!
     <Provider store={store}>
+    <Loader />
     <BrowserRouter>
       <React.Fragment>
         <div className='ui container'>

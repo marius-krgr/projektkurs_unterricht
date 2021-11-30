@@ -19,4 +19,6 @@ Semantic UI
 
 Daten werden immer nur an EINER Stelle verwaltet!!
 
-Cmd P für suche
+Cmd P für suche+
+
+Figma zum planen und so von der App!!! 

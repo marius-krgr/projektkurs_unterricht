@@ -100,6 +100,7 @@ const TodoRedux = () => {
                     </button>
                 </div>
                 {/* {i.working === true ? <TodoDetails todo={i} />: null} */}
+                {/* inplace Editing!? */}
                 {i.working && !iplace ? (<TodoDetails todo={i} inittext={i.title} />) : null}
             </div>
         );
@@ -126,6 +127,8 @@ const TodoRedux = () => {
             <div className="visible content">Hinzufügen</div>
             <div className="hidden content">Go!</div>
         </button>
+
+        {/* inplace editing toggle switch*/}
         <div>
             <div class="ui toggle checkbox">
                 <input
