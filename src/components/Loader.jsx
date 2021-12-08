@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { loadFromStorage } from '../store/todoSlice';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { loadFromStorage } from "../store/todoSlice";
 
 const Loader = () => {
   const dispatch = useDispatch();
@@ -8,7 +8,7 @@ const Loader = () => {
     dispatch(loadFromStorage());
   });
 
-  return <></>
-}
+  return <></>;
+};
 
 export default Loader;
