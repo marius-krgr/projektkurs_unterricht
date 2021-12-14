@@ -5,28 +5,27 @@
 //   }
 
 //Temperaturen
-  .hintergrund {
-    background-color: red;
-    //background-size: 30px 20px;
-    background-repeat: no-repeat;
-    opacity: 0.9;
-    //background-image: url'https://unsplash.com/photos/qQWV91TTBrE/download?force=true&w=1920';
+.hintergrund {
+  background-color: red;
+  //background-size: 30px 20px;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  //background-image: url'https://unsplash.com/photos/qQWV91TTBrE/download?force=true&w=1920';
+}
+
+//Vertretungsplan
+.coverlessonstable {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    border: 1px solid black;
+    padding: 4px;
   }
-  
-  //Vertretungsplan
-  .coverlessonstable {
-    width: 100%;
-    border-collapse: collapse;
-  
-    th,
-    td {
-      border: 1px solid black;
-      padding: 4px;
-    }
-  
-    th {
-      color: white;
-      background-color: black;
-    }
+
+  th {
+    color: white;
+    background-color: black;
   }
-  
+}

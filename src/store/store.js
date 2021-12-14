@@ -1,8 +1,5 @@
-import {
-  combineReducers,
-  configureStore
-} from '@reduxjs/toolkit';
-import todoReducer from './todoSlice';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import todoReducer from "./todoSlice";
 
 //Reducer = Reduzieren den Aufwand für ka
 export const rootReducer = combineReducers({
@@ -10,9 +7,8 @@ export const rootReducer = combineReducers({
 });
 
 const store = configureStore({
-  devTools: process.env.NODE_ENV !== 'production',
+  devTools: process.env.NODE_ENV !== "production",
   reducer: rootReducer,
 });
-
 
 export default store;

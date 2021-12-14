@@ -3,16 +3,16 @@ import {
   combineReducers,
   configureStore,
   ThunkAction,
-} from '@reduxjs/toolkit';
+} from "@reduxjs/toolkit";
 
-import todoReducer from './todoSlice';
+import todoReducer from "./todoSlice";
 
 export const rootReducer = combineReducers({
   todos: todoReducer,
 });
 
 const store = configureStore({
-  devTools: process.env.NODE_ENV !== 'production',
+  devTools: process.env.NODE_ENV !== "production",
   reducer: rootReducer,
 });
 
